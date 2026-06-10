@@ -8,8 +8,12 @@ public abstract class PotionDecorator implements Potion {
     }
 
     @Override
-    public int getPV() { return potion.getPV(); }
+    public int getPV() { 
+        return potion.getPV(); 
+    }
     
     @Override
-    public String getEffets() { return potion.getEffets(); }
+    public String getEffets() { 
+        return potion.getEffets(); 
+    }
 }

@@ -10,9 +10,8 @@ public class GenerateurSQL {
  * Utilise @Entite.table() et les noms de @Colonne.
  * Lève IllegalArgumentException si @Entite absent. */
 public static String genererSelect(Class<?> clazz) {
-        String nomTable = Inspecteur.getNomTable(clazz); // Réutilise ton Inspecteur !
-        List<String> colonnes = Inspecteur.getColonnes(clazz);
-        
+        String nomTable = Inspecteur.getNomTable(clazz);
+        List<String> colonnes = Inspecteur.getColonnes(clazz);      
         String colonnesStr = String.join(", ", colonnes);
         return "SELECT " + colonnesStr + " FROM " + nomTable;
     }
@@ -29,11 +28,10 @@ public static String genererSelect(Class<?> clazz) {
 
         for (Field field : clazz.getDeclaredFields()) {
             if (field.isAnnotationPresent(Colonne.class)) {
-                field.setAccessible(true); // Autorise l'accès au champ private
+                field.setAccessible(true); 
                 Object valeur = field.get(objet);
                 Colonne colonne = field.getAnnotation(Colonne.class);
                 
-                // Vérification du nullable
                 if (!colonne.nullable() && valeur == null) {
                     throw new IllegalStateException("Le champ " + field.getName() + " ne peut pas être null.");
                 }
@@ -41,7 +39,6 @@ public static String genererSelect(Class<?> clazz) {
                 String nomCol = colonne.nom().isEmpty() ? field.getName() : colonne.nom();
                 nomsColonnes.add(nomCol);
                 
-                // Formatage de la valeur (si String, on ajoute des guillemets)
                 if (valeur instanceof String) {
                     valeurs.add("'" + valeur + "'");
                 } else {

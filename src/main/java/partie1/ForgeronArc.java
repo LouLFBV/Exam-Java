@@ -16,5 +16,4 @@ public class ForgeronArc extends Forgeron {
             }
         };
     }
-
 }

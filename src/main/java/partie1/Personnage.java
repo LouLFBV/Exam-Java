@@ -16,10 +16,9 @@ public class Personnage {
         this.mana = builder.mana;
         this.arme = builder.arme;
         this.estElite = builder.estElite;
-        this.etat = new EtatVivant(this); // État par défaut
+        this.etat = new EtatVivant(this); 
     }
 
-    // MÉTHODES DE DÉLÉGATION (Dans Personnage, pas dans le Builder)
     public String attaquer(String cible) { return etat.attaquer(cible); }
     public String recevoirPoison() { return etat.recevoirPoison(); }
     public String mourir() { return etat.mourir(); }
@@ -27,7 +26,6 @@ public class Personnage {
     public void setEtat(EtatPersonnage etat) { this.etat = etat; }
     public String getNom() { return nom; }
 
-    // Builder reste à la fin
     public static class Builder {
         private final String nom;
         private final String classe;

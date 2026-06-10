@@ -1,6 +1,5 @@
 package partie1;
 
-// Implémentations concrètes de l'abstraction
 class NotificationUrgente extends Notification {
     public NotificationUrgente(CanalEnvoi canal) { super(canal); }
 

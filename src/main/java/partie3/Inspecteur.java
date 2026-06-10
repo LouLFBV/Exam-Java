@@ -23,7 +23,6 @@ public static List<String> getColonnes(Class<?> clazz) {
         for (Field field : clazz.getDeclaredFields()) {
             if (field.isAnnotationPresent(Colonne.class)) {
                 Colonne colonne = field.getAnnotation(Colonne.class);
-                // Si nom() est vide, on utilise le nom du champ Java
                 String nom = colonne.nom().isEmpty() ? field.getName() : colonne.nom();
                 nomsColonnes.add(nom);
             }
