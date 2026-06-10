@@ -2,7 +2,9 @@ package partie1;
 
 // État Vivant
 class EtatVivant extends EtatPersonnage {
-    public EtatVivant(Personnage p) { super(p); }
+    public EtatVivant(Personnage p) { 
+        super(p); 
+    }
 
     @Override
     public String attaquer(String cible) {

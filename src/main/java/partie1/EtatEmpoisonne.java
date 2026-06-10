@@ -2,7 +2,9 @@ package partie1;
 
 // État Empoisonné
 class EtatEmpoisonne extends EtatPersonnage {
-    public EtatEmpoisonne(Personnage p) { super(p); }
+    public EtatEmpoisonne(Personnage p) { 
+        super(p); 
+    }
 
     @Override
     public String attaquer(String cible) {

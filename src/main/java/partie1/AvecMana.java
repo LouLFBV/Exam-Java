@@ -2,7 +2,9 @@ package partie1;
 
 // Ajoute le Mana (+30 PV supplémentaires)
 public class AvecMana extends PotionDecorator {
-    public AvecMana(Potion potion) { super(potion); }
+    public AvecMana(Potion potion) { 
+        super(potion); 
+    }
 
     @Override
     public int getPV() { 
